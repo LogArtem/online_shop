@@ -1,6 +1,6 @@
 # My Python Online Shop
-I don't know yet
-## Simply Lovely
+I don't know yet. Simply Lovely.
+## How to Run
 1. Install dependencies:
    ```bash
    🖤🖤🖤
