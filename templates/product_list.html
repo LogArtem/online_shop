@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Product List</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Products</h1>
+    <a href="{{ url_for('routes.add_product') }}">Add Product</a>
+    <table border="1">   <!-- Таблиця для відображення списку продуктів -->
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Category</th>
+                <th>Active</th>
+                <th>Price</th>
+                <th>Discounts</th>
+                <th>Created</th>
+                <th>Updated</th>
+                <th>Stock</th>
+                <th>Rating</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in products %}     <!-- цикл: перебирає всі продукти зі змінної products -->
+            <tr>
+                <td>{{ product.id }}</td>
+                <td>{{ product.name }}</td>
+                <td>{{ product.description }}</td>
+                <td>{{ product.category }}</td>
+                <td>{{ product.is_active }}</td>
+                <td>{{ product.price }}</td>
+                <td>{{ product.sale }}</td>
+                <td>{{ product.created_at }}</td>
+                <td>{{ product.updated_at }}</td>
+                <td>{{ product.stock }}</td>
+                <td>{{ product.rating }}</td>
+            </tr>
+            {% endfor %}   <!-- Кінець циклу -->
+        </tbody>
+    </table>
+</body>
+</html>
