@@ -3,9 +3,11 @@ from .models import db, Product    # Імпортуємо базу даних і
 
 bp = Blueprint('routes', __name__)   # Створюємо Blueprint з назвою 'routes'    # __name__ потрібен Flask для коректного визначення шляху
 
-@bp.route('/')   # Маршрут для головної сторінки
+@bp.route('/')
 def index():
-    return render_template('index.html')   # Повертаємо HTML-шаблон index.html
+    products = Product.query.all()
+    return render_template('index.html', products=products)
+
 
 @bp.route('/products')    # Маршрут для сторінки зі списком продуктів
 def products():
