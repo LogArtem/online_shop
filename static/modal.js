@@ -32,7 +32,13 @@ function buildMetaHTML(attrs) {
   return `
     <p>
       <strong>Category:</strong> ${attrs.category || '-'} <br>
-      <strong>Rating:</strong> ${attrs.rating || '-'} <br>
+       <div class="rating" data-rating="${attrs.rating || 0}">
+    <span class="star">★</span>
+    <span class="star">★</span>
+    <span class="star">★</span>
+    <span class="star">★</span>
+    <span class="star">★</span>
+</div>
       <strong>Sale:</strong> ${attrs.sale === 'true' ? 'Yes' : 'No'} <br>
       <strong>Active:</strong> ${attrs.active === 'true' ? 'Yes' : 'No'}
     </p>
@@ -62,7 +68,10 @@ document.querySelectorAll('.btn-details').forEach(function(btn) {
     modalStock.textContent = 'Stock: ' + attrs.stock;
     modalDesc.textContent = attrs.description || 'No description';
     modalMeta.innerHTML = buildMetaHTML(attrs);
-
+   
+    // Викликаємо функцію оновлення зірочок із scripts.js
+const ratingDiv = modal.querySelector('.rating');
+updateRatingStars(ratingDiv);
     openModal();
   });
 });
